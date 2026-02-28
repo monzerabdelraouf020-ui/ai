@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Bullying Detector | درعك الإلكتروني الذكي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 20%, #1e3a8a 0%, #020617 60%);
+        }
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(30, 41, 59, 0.7);
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(59, 130, 246, 0.1),
+                transparent
+            );
+            transition: 0.6s;
+        }
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        .icon-glow {
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .dashboard-step {
+            transition: all 0.3s ease;
+        }
+        .dashboard-step:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateX(-10px);
+        }
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center border-b border-white/5">
+        <div class="flex items-center gap-3">
+            <div class="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-600/20">
+                <i data-lucide="shield-check" class="text-white w-6 h-6"></i>
+            </div>
+            <span class="text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+                CYBER GUARD
+            </span>
+        </div>
+        <div class="hidden md:flex gap-10 font-bold text-sm uppercase tracking-widest text-gray-400">
+            <a href="#features" class="nav-link hover:text-white transition">المميزات</a>
+            <a href="#installation" class="nav-link hover:text-white transition">طريقة التثبيت</a>
+            <a href="#dashboard-preview" class="nav-link hover:text-white transition">لوحة التحكم</a>
+        </div>
+        <a href="#download" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-2.5 rounded-xl font-black transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-blue-600/30 flex items-center gap-2">
+            ثبت الإضافة
+            <i data-lucide="chevron-left" size="18"></i>
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 hero-gradient px-6 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[150px]"></div>
+        </div>
+        
+        <div class="container mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 backdrop-blur-md rounded-full px-6 py-2 mb-10 transform hover:scale-105 transition-transform cursor-default">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                </span>
+                <span class="text-blue-300 text-xs md:text-sm font-bold tracking-widest uppercase">الجيل القادم من الحماية الرقمية</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tight">
+                تصفح بذكاء، <br>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-white to-cyan-400">
+                    ابقَ محميّاً دائماً
+                </span>
+            </h1>
+            
+            <p class="text-gray-400 text-lg md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+                درع ذكي مدعوم بتقنيات <span class="text-white font-bold">Gemini AI</span> يحلل كل بكسل وكل كلمة لضمان بيئة إنترنت آمنة تماماً لك ولعائلتك.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <!-- الرابط المباشر الأول -->
+                <a href="#" class="w-full md:w-auto px-12 py-6 bg-white text-blue-950 rounded-2xl font-black text-xl transition-all shadow-2xl hover:bg-blue-50 flex items-center justify-center gap-3 group">
+                    تحميل مباشر الآن
+                    <i data-lucide="download" class="group-hover:translate-y-1 transition"></i>
+                </a>
+                <a href="#installation" class="w-full md:w-auto px-12 py-6 glass hover:bg-white/10 rounded-2xl font-bold text-xl transition flex items-center justify-center gap-3 border-white/20">
+                    كيفية التثبيت
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-32 px-6 relative bg-[#020617]">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
+                <div class="text-right">
+                    <h2 class="text-4xl md:text-6xl font-black mb-4">مميزات خارقة</h2>
+                    <p class="text-gray-500 text-xl">كل ما تحتاجه للسيطرة الكاملة على تجربتك الرقمية</p>
+                </div>
+                <div class="hidden md:block h-px flex-1 bg-gradient-to-l from-blue-600/50 to-transparent mx-10 mb-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card glass p-10 rounded-[2.5rem] border border-white/5">
+                    <div class="w-16 h-16 bg-blue-600/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 shadow-inner">
+                        <i data-lucide="cpu" class="text-blue-400 icon-glow w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-white">تحليل Gemini AI</h3>
+                    <p class="text-gray-400 leading-relaxed font-medium">
+                        تجاوزنا مرحلة "الكلمات المحظورة". نظامنا يفهم السخرية، التنمر غير المباشر، والمحتوى المبطن بدقة بفضل ذكاء جوجل.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card glass p-10 rounded-[2.5rem] border border-white/5">
+                    <div class="w-16 h-16 bg-indigo-600/10 rounded-2xl flex items-center justify-center mb-8 border border-indigo-500/20 shadow-inner">
+                        <i data-lucide="eye-off" class="text-indigo-400 icon-glow w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-white">التمويه الحديدي</h3>
+                    <p class="text-gray-400 leading-relaxed font-medium">
+                        طبقة تمويه فورية للصور والنصوص المسيئة. لا يمكن كشفها إلا برمز سري، مما يمنع الصدمات البصرية المفاجئة.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card glass p-10 rounded-[2.5rem] border border-white/5">
+                    <div class="w-16 h-16 bg-cyan-600/10 rounded-2xl flex items-center justify-center mb-8 border border-cyan-500/20 shadow-inner">
+                        <i data-lucide="zap" class="text-cyan-400 icon-glow w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-white">أداء فائق السرعة</h3>
+                    <p class="text-gray-400 leading-relaxed font-medium">
+                        بفضل بنية التصفية المتقدمة، لا تتأثر سرعة تحميل المواقع إطلاقاً. حماية فورية دون أي تأخير في تجربة المستخدم.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card glass p-10 rounded-[2.5rem] border border-white/5">
+                    <div class="w-16 h-16 bg-red-600/10 rounded-2xl flex items-center justify-center mb-8 border border-red-500/20 shadow-inner">
+                        <i data-lucide="shield-alert" class="text-red-400 icon-glow w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-white">حظر المحتوى</h3>
+                    <p class="text-gray-400 leading-relaxed font-medium">
+                        تصفية شاملة للمواقع غير اللائقة، ومحتوى العنف. الإنترنت يصبح مكاناً نظيفاً بضغطة زر واحدة بفضل محرك التصفية المطور.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card glass p-10 rounded-[2.5rem] border border-white/5">
+                    <div class="w-16 h-16 bg-green-600/10 rounded-2xl flex items-center justify-center mb-8 border border-green-500/20 shadow-inner">
+                        <i data-lucide="bar-chart-3" class="text-green-400 icon-glow w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-white">تقارير النشاط</h3>
+                    <p class="text-gray-400 leading-relaxed font-medium">
+                        اعرف بالضبط ما تم حجبه وكم مرة. رسوم بيانية توضح لك حجم التهديدات التي واجهتها الإضافة وحمتك منها.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card glass p-10 rounded-[2.5rem] border border-white/5">
+                    <div class="w-16 h-16 bg-amber-600/10 rounded-2xl flex items-center justify-center mb-8 border border-amber-500/20 shadow-inner">
+                        <i data-lucide="key-round" class="text-amber-400 icon-glow w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-white">التحكم الأبوي</h3>
+                    <p class="text-gray-400 leading-relaxed font-medium">
+                        نظام "القفل الإداري". لا يمكن تعديل أي إعداد أو حذف الإضافة بدون كلمة المرور الخاصة بك. أمان لا يُقهر.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Installation Steps -->
+    <section id="installation" class="py-32 bg-slate-900/20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center italic font-black">كيفية تثبيت الإضافة</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Common Steps -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-black text-blue-400 mb-8 flex items-center gap-3">
+                        <i data-lucide="package-open"></i> الخطوات الأولى
+                    </h3>
+                    
+                    <div class="flex gap-6 items-start">
+                        <div class="step-number w-10 h-10 rounded-lg flex items-center justify-center font-black shrink-0">1</div>
+                        <p class="text-gray-300 leading-relaxed">قم بتحميل ملف الإضافة بصيغة <b>ZIP</b> من زر التحميل في الأسفل.</p>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="step-number w-10 h-10 rounded-lg flex items-center justify-center font-black shrink-0">2</div>
+                        <p class="text-gray-300 leading-relaxed">قم بفك ضغط الملف (Extract) في مجلد خاص على جهازك لسهولة الوصول إليه.</p>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="step-number w-10 h-10 rounded-lg flex items-center justify-center font-black shrink-0">3</div>
+                        <div class="w-full">
+                            <p class="text-gray-300 leading-relaxed mb-4">افتح صفحة الإضافات في متصفحك:</p>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div class="glass p-4 rounded-xl border-blue-500/20">
+                                    <span class="text-blue-400 font-bold block mb-1">Google Chrome:</span>
+                                    <code class="text-xs text-gray-400">chrome://extensions</code>
+                                </div>
+                                <div class="glass p-4 rounded-xl border-cyan-500/20">
+                                    <span class="text-cyan-400 font-bold block mb-1">Microsoft Edge / Other:</span>
+                                    <code class="text-xs text-gray-400">edge://extensions</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Browser Specific Steps -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-black text-cyan-400 mb-8 flex items-center gap-3">
+                        <i data-lucide="settings-2"></i> تفعيل وضع المطور
+                    </h3>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="step-number w-10 h-10 rounded-lg flex items-center justify-center font-black shrink-0">4</div>
+                        <p class="text-gray-300 leading-relaxed">تأكد من تفعيل <b>وضع المطور (Developer Mode)</b> من المفتاح الموجود في أعلى يسار الشاشة.</p>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="step-number w-10 h-10 rounded-lg flex items-center justify-center font-black shrink-0">5</div>
+                        <p class="text-gray-300 leading-relaxed">اضغط على زر <b>تحميل إضافة مفكوكة (Load unpacked)</b>.</p>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="step-number w-10 h-10 rounded-lg flex items-center justify-center font-black shrink-0">6</div>
+                        <div class="glass p-6 rounded-2xl border-emerald-500/30">
+                            <p class="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+                                <i data-lucide="check-circle-2"></i> الخطوة الأخيرة
+                            </p>
+                            <p class="text-gray-300 text-sm">اختر المجلد الذي قمت بفك ضغط الإضافة فيه واضغط <b>Select Folder</b>. ستظهر الإضافة فوراً في شريط المتصفح!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA -->
+    <section id="download" class="py-40 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-blue-600/5 skew-y-3 transform origin-bottom-right"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <h2 class="text-5xl md:text-7xl font-black mb-10 leading-tight">جاهز <span class="text-blue-500 italic">للحماية</span>؟</h2>
+            <div class="glass max-w-4xl mx-auto p-12 rounded-[3.5rem] border-white/10 relative overflow-hidden shadow-[0_0_100px_-20px_rgba(59,130,246,0.3)]">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                
+                <p class="text-xl text-gray-400 mb-12 font-medium">حمل الإضافة الآن واتبع خطوات التثبيت المذكورة بالأعلى.</p>
+                
+                <div class="flex flex-col gap-6 items-center">
+                    <!-- الرابط المباشر الثاني (Dropbox) -->
+                    <a href="#" 
+                       class="w-full md:w-auto px-16 py-8 bg-blue-600 hover:bg-blue-500 rounded-3xl font-black text-3xl flex items-center justify-center gap-4 transition-all hover:scale-105 shadow-2xl shadow-blue-600/40 group">
+                        <i data-lucide="download-cloud" class="w-10 h-10 group-hover:animate-bounce"></i>
+                        تحميل الإضافة (ZIP)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer with Professional Social Icons -->
+    <footer class="py-20 bg-[#010409] border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-black mb-12 tracking-wide text-gray-300">تواصل مباشر مع المطور</h3>
+            
+            <div class="flex flex-wrap justify-center gap-6 mb-16">
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/201093035242" target="_blank" 
+                   class="flex items-center gap-4 bg-emerald-600/10 hover:bg-emerald-600 text-emerald-500 hover:text-white px-10 py-5 rounded-2xl border border-emerald-500/20 transition-all duration-300 transform hover:-translate-y-2 group shadow-xl hover:shadow-emerald-600/20">
+                    <div class="bg-emerald-600/20 group-hover:bg-white/20 p-2 rounded-lg">
+                        <i data-lucide="message-circle" class="w-8 h-8"></i>
+                    </div>
+                    <div class="text-right">
+                        <span class="block text-xs font-bold opacity-70">راسلنا على</span>
+                        <span class="text-xl font-black">واتساب</span>
+                    </div>
+                </a>
+
+                <!-- Telegram Button -->
+                <a href="https://t.me/yourusername" target="_blank" 
+                   class="flex items-center gap-4 bg-sky-600/10 hover:bg-sky-600 text-sky-400 hover:text-white px-10 py-5 rounded-2xl border border-sky-500/20 transition-all duration-300 transform hover:-translate-y-2 group shadow-xl hover:shadow-sky-600/20">
+                    <div class="bg-sky-600/20 group-hover:bg-white/20 p-2 rounded-lg">
+                        <i data-lucide="send" class="w-8 h-8"></i>
+                    </div>
+                    <div class="text-right">
+                        <span class="block text-xs font-bold opacity-70">انضم إلينا على</span>
+                        <span class="text-xl font-black">تلجرام</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="max-w-2xl mx-auto h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-12"></div>
+            
+            <p class="text-gray-500 font-bold mb-4 uppercase tracking-[0.3em]">Cyber Guard Detector Project</p>
+            <p class="text-gray-600 text-sm font-medium">بكل فخر، نبني إنترنت أفضل للأجيال القادمة.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.feature-card, .glass, .dashboard-step, .step-number').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
